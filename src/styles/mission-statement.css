@@ -32,7 +32,7 @@
   height: 100%;
   background-image: url('/land.png');
   background-size: cover;
-  background-position: center bottom;
+  background-position: center 70%;
   background-repeat: no-repeat;
   z-index: 1;
 }
@@ -59,7 +59,7 @@
 .mission-hero__title {
   font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 54px;
-  font-weight: 600;
+  font-weight: 400;
   color: #ffffff;
   margin: 0;
   line-height: 1.2;
@@ -98,7 +98,9 @@
 .mission-content__image {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: auto;
+  min-height: 500px;
+  max-height: 800px;
   border-radius: 0px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -109,6 +111,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  min-height: 550px;
 }
 
 .mission-content__text {
@@ -119,7 +122,7 @@
   font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #000000;
   margin: 0 0 2rem 0;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -135,181 +138,11 @@
   font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
-  color: #4a4a4a;
+  color: #000000;
   line-height: 1.7;
   margin: 0;
 }
 
-/* Full-Width Callout Section */
-.mission-callout {
-  position: relative;
-  width: 100%;
-  height: 60vh;
-  min-height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.mission-callout__background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/abstract-watercolor-paint-background-dark-turquoise-gradient-color-with-fluid-curve-lines-texture_941600-55446.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
-.mission-callout__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-
-.mission-callout__content {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  max-width: 800px;
-  padding: 0 2rem;
-}
-
-.mission-callout__quote {
-  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #ffffff;
-  line-height: 1.3;
-  margin: 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  font-style: italic;
-}
-
-/* Three-Column Supporting Statements */
-.mission-pillars {
-  padding: 6rem 0;
-  background-color: #f8f9fa;
-}
-
-.mission-pillars__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.mission-pillars__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-}
-
-.mission-pillar {
-  text-align: center;
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.mission-pillar:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-.mission-pillar__image {
-  width: 100%;
-  height: 200px;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-}
-
-.mission-pillar__photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.mission-pillar__title {
-  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
-  line-height: 1.3;
-}
-
-.mission-pillar__description {
-  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  color: #6a6a6a;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* Final Closing Section */
-.mission-closing {
-  position: relative;
-  width: 100%;
-  height: 50vh;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.mission-closing__background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/hero2.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
-.mission-closing__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 2;
-}
-
-.mission-closing__content {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  max-width: 800px;
-  padding: 0 2rem;
-}
-
-.mission-closing__statement {
-  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 1.5;
-  margin: 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -383,36 +216,6 @@
     font-size: 1rem;
   }
   
-  .mission-callout {
-    height: 50vh;
-    min-height: 350px;
-  }
-  
-  .mission-callout__quote {
-    font-size: 2rem;
-  }
-  
-  .mission-pillars {
-    padding: 4rem 0;
-  }
-  
-  .mission-pillars__grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .mission-pillar {
-    padding: 1.5rem;
-  }
-  
-  .mission-closing {
-    height: 40vh;
-    min-height: 250px;
-  }
-  
-  .mission-closing__statement {
-    font-size: 1.25rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -453,54 +256,22 @@
     font-size: 0.95rem;
   }
   
-  .mission-callout__quote {
-    font-size: 1.75rem;
-  }
-  
-  .mission-pillars {
-    padding: 3rem 0;
-  }
-  
-  .mission-pillar {
-    padding: 1.25rem;
-  }
-  
-  .mission-pillar__title {
-    font-size: 1.25rem;
-  }
-  
-  .mission-pillar__description {
-    font-size: 0.95rem;
-  }
-  
-  .mission-closing__statement {
-    font-size: 1.125rem;
-  }
 }
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .mission-pillar {
+  .mission-content__image img {
     transition: none;
-  }
-  
-  .mission-pillar:hover {
-    transform: none;
   }
 }
 
 /* High Contrast Mode */
 @media (prefers-contrast: high) {
-  .mission-hero__overlay,
-  .mission-callout__overlay,
-  .mission-closing__overlay {
+  .mission-hero__overlay {
     background: rgba(0, 0, 0, 0.8);
   }
   
-  .mission-hero__title,
-  .mission-hero__subtitle,
-  .mission-callout__quote,
-  .mission-closing__statement {
+  .mission-hero__title {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   }
 }
