@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import Link from 'next/link';
 
 interface MegaMenuItem {
   title: string;
@@ -168,7 +169,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({
               <ul className="mega-menu__items" role="list">
                 {column.items.map((item, itemIndex) => (
                   <li key={itemIndex} role="listitem">
-                    <a
+                    <Link
                       href={item.href}
                       className="mega-menu__item"
                       role="menuitem"
@@ -183,7 +184,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({
                           </span>
                         )}
                       </div>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -207,7 +208,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({
               <ul className="mega-menu__items" role="list">
                 {column.items.map((item, itemIndex) => (
                   <li key={itemIndex} role="listitem">
-                    <a
+                    <Link
                       href={item.href}
                       className="mega-menu__item"
                       role="menuitem"
@@ -222,7 +223,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({
                           </span>
                         )}
                       </div>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

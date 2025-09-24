@@ -2,29 +2,16 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { HamburgerMenu } from './HamburgerMenu';
 import { NavigationMenu } from './NavigationMenu';
 import { MegaMenu } from './MegaMenu';
 import { LanguageSwitcher } from '../Language/LanguageSwitcher';
+import { getLanguageFromPath } from '@/utils/language';
+import { getNavigationItems, type NavigationItem } from '@/utils/navigation';
 // Removed complex state managers for website simplicity
 
-interface NavigationItem {
-  label: string;
-  href?: string;
-  hasDropdown?: boolean;
-  dropdownContent?: {
-    title: string;
-    columns: Array<{
-      title: string;
-      items: Array<{
-        title: string;
-        description?: string;
-        href: string;
-        icon?: React.ReactNode;
-      }>;
-    }>;
-  };
-}
+// NavigationItem interface is now imported from utils/navigation
 
 interface HeaderProps {
   logo?: React.ReactNode;
@@ -35,6 +22,7 @@ export const Header: React.FC<HeaderProps> = ({
   logo,
   className = ''
 }) => {
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,153 +30,9 @@ export const Header: React.FC<HeaderProps> = ({
   const headerRef = useRef<HTMLElement>(null);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Navigation items based on requirements
-  const navigationItems: NavigationItem[] = [
-    {
-      label: 'Home',
-      href: '/'
-    },
-    {
-      label: 'Our Company',
-      hasDropdown: true,
-      dropdownContent: {
-        title: 'Our Company',
-        columns: [
-          {
-            title: 'About Us',
-            items: [
-              {
-                title: 'Company Overview',
-                description: 'Learn about our mission and values',
-                href: '/ourcompany/overview'
-              },
-              {
-                title: 'Our History',
-                description: 'Discover our journey and milestones',
-                href: '/about/history'
-              },
-              {
-                title: 'Leadership Team',
-                description: 'Meet our executive leadership',
-                href: '/about/leadership'
-              }
-            ]
-          },
-          {
-            title: 'Our Team',
-            items: [
-              {
-                title: 'Expert Consultants',
-                description: 'Meet our industry experts',
-                href: '/team/consultants'
-              },
-              {
-                title: 'Advisory Board',
-                description: 'Our strategic advisors',
-                href: '/team/advisory'
-              },
-              {
-                title: 'Global Network',
-                description: 'Worldwide expertise and presence',
-                href: '/team/network'
-              }
-            ]
-          },
-          {
-            title: 'Our Vision',
-            items: [
-              {
-                title: 'Mission Statement',
-                description: 'Our commitment to excellence',
-                href: '/vision/mission'
-              },
-              {
-                title: 'Strategic Goals',
-                description: 'Our roadmap for the future',
-                href: '/vision/goals'
-              },
-              {
-                title: 'Sustainability',
-                description: 'Environmental and social responsibility',
-                href: '/vision/sustainability'
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      label: 'Services',
-      hasDropdown: true,
-      dropdownContent: {
-        title: 'Our Services',
-        columns: [
-          {
-            title: 'Services',
-            items: [
-              {
-                title: 'Consulting services in the public sector',
-                description: 'Strategic advisory and consulting for public institutions',
-                href: '/services/public-sector-consulting'
-              },
-              {
-                title: 'Technology and information technology',
-                description: 'IT strategy, digital transformation, and technology solutions',
-                href: '/services/technology'
-              },
-              {
-                title: 'Investment project management',
-                description: 'End-to-end project oversight and delivery',
-                href: '/services/investment-management'
-              },
-              {
-                title: 'Strategic and operational planning',
-                description: 'Long-term strategic roadmap and operational optimization',
-                href: '/services/strategic-planning'
-              }
-            ]
-          },
-          {
-            title: 'Services',
-            items: [
-              {
-                title: 'Energy studies',
-                description: 'Comprehensive energy sector analysis and studies',
-                href: '/services/energy-studies'
-              },
-              {
-                title: 'Quality Management Systems',
-                description: 'ISO and quality system implementation and certification',
-                href: '/services/quality-management'
-              },
-              {
-                title: 'Feasibility Studies',
-                description: 'Thorough project viability and feasibility assessment',
-                href: '/services/feasibility-studies'
-              },
-              {
-                title: 'ESG Strategy & Implementation',
-                description: 'Environmental, Social, and Governance strategy and implementation',
-                href: '/services/esg-strategy'
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      label: 'Projects',
-      href: '/projects'
-    },
-    {
-      label: 'E-learning',
-      href: '/e-learning'
-    },
-    {
-      label: 'News',
-      href: '/news'
-    }
-  ];
+  // Get current language and navigation items
+  const currentLanguage = getLanguageFromPath(pathname);
+  const navigationItems = getNavigationItems(currentLanguage);
 
   useEffect(() => {
     // Handle scroll effect for website header styling
@@ -370,13 +214,25 @@ export const Header: React.FC<HeaderProps> = ({
                     </svg>
                   </button>
                 ) : (
-                  <a
-                    href={item.href || '#'}
-                    className="header__nav-link"
-                    role="menuitem"
-                  >
-                    {item.label}
-                  </a>
+                  item.external ? (
+                    <a
+                      href={item.href || '#'}
+                      className="header__nav-link"
+                      role="menuitem"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href || '#'}
+                      className="header__nav-link"
+                      role="menuitem"
+                    >
+                      {item.label}
+                    </Link>
+                  )
                 )}
               </li>
             ))}
@@ -387,10 +243,10 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="header__language">
           <LanguageSwitcher 
             className="header__language-switcher"
-            currentLanguage="en"
+            currentLanguage={currentLanguage}
             onLanguageChange={(language) => {
               console.log('Language changed to:', language);
-              // Here you would implement actual language switching logic
+              // Language switching is now handled in the LanguageSwitcher component
             }}
           />
         </div>
@@ -406,7 +262,7 @@ export const Header: React.FC<HeaderProps> = ({
             isOpen={activeDropdown === item.label}
             onClose={handleDropdownClose}
             onMouseEnter={handleMegaMenuMouseEnter}
-            className={`header__mega-menu header__mega-menu--${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+            className={`header__mega-menu header__mega-menu--${item.labelEn.toLowerCase().replace(/\s+/g, '-')}`}
           />
         )
       ))}

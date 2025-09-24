@@ -1,0 +1,506 @@
+/**
+ * Mission Statement Page Styles
+ * Professional consulting company mission page with modern, corporate design
+ */
+
+/* Base Mission Page Styles */
+.mission-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.mission-hero {
+  position: relative;
+  width: 100%;
+  height: calc(60vh - var(--header-height, 96px));
+  min-height: calc(400px - var(--header-height, 96px));
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  margin-top: var(--header-height, 96px);
+  padding: var(--spacing-4xl) 0 var(--spacing-3xl);
+  padding-top: calc(var(--header-height, 96px) + var(--spacing-4xl));
+}
+
+.mission-hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/land.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.mission-hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.mission-hero__content {
+  position: relative;
+  z-index: 3;
+  text-align: left;
+  max-width: 1200px;
+  margin: 0;
+  margin-left: 4rem;
+  padding: 0 2rem;
+}
+
+.mission-hero__title {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 54px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-align: left;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.mission-hero__subtitle {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Two-Column Mission Content */
+.mission-content {
+  padding: 6rem 0;
+  background-color: #ffffff;
+}
+
+.mission-content__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.mission-content__image {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 0px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mission-content__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mission-content__text {
+  padding-left: 0;
+}
+
+.mission-content__heading {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 2rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.mission-content__paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mission-content__paragraph {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #4a4a4a;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Full-Width Callout Section */
+.mission-callout {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mission-callout__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/abstract-watercolor-paint-background-dark-turquoise-gradient-color-with-fluid-curve-lines-texture_941600-55446.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.mission-callout__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.mission-callout__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.mission-callout__quote {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-style: italic;
+}
+
+/* Three-Column Supporting Statements */
+.mission-pillars {
+  padding: 6rem 0;
+  background-color: #f8f9fa;
+}
+
+.mission-pillars__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.mission-pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.mission-pillar {
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-pillar:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.mission-pillar__image {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.mission-pillar__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mission-pillar__title {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.mission-pillar__description {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #6a6a6a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Final Closing Section */
+.mission-closing {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mission-closing__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/hero2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.mission-closing__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.mission-closing__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.mission-closing__statement {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.5;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .mission-hero__title {
+    font-size: 48px;
+  }
+  
+  .mission-hero__subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .mission-content__container {
+    gap: 3rem;
+  }
+  
+  .mission-content__heading {
+    font-size: 2.25rem;
+  }
+  
+  .mission-callout__quote {
+    font-size: 2.25rem;
+  }
+  
+  .mission-pillars__grid {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-hero {
+    height: calc(60vh - var(--header-height, 80px));
+    min-height: calc(350px - var(--header-height, 80px));
+    margin-top: var(--header-height, 80px);
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+    padding-top: calc(var(--header-height, 80px) + var(--spacing-3xl));
+  }
+  
+  .mission-hero__title {
+    font-size: 42px;
+  }
+  
+  .mission-hero__subtitle {
+    font-size: 1rem;
+  }
+  
+  .mission-content {
+    padding: 4rem 0;
+  }
+  
+  .mission-content__container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+  
+  .mission-hero__content {
+    margin-left: 2.5rem;
+    padding: 0 1.5rem;
+  }
+  
+  .mission-content__text {
+    padding-left: 0;
+  }
+  
+  .mission-content__heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .mission-content__paragraph {
+    font-size: 1rem;
+  }
+  
+  .mission-callout {
+    height: 50vh;
+    min-height: 350px;
+  }
+  
+  .mission-callout__quote {
+    font-size: 2rem;
+  }
+  
+  .mission-pillars {
+    padding: 4rem 0;
+  }
+  
+  .mission-pillars__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .mission-pillar {
+    padding: 1.5rem;
+  }
+  
+  .mission-closing {
+    height: 40vh;
+    min-height: 250px;
+  }
+  
+  .mission-closing__statement {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-hero {
+    height: calc(60vh - var(--header-height, 80px));
+    min-height: calc(300px - var(--header-height, 80px));
+    margin-top: var(--header-height, 80px);
+    padding: var(--spacing-2xl) 0 var(--spacing-xl);
+    padding-top: calc(var(--header-height, 80px) + var(--spacing-2xl));
+  }
+  
+  .mission-hero__title {
+    font-size: 32px;
+  }
+  
+  .mission-hero__subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .mission-content {
+    padding: 3rem 0;
+  }
+  
+  .mission-content__container {
+    padding: 0 1rem;
+  }
+  
+  .mission-hero__content {
+    margin-left: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .mission-content__heading {
+    font-size: 1.75rem;
+  }
+  
+  .mission-content__paragraph {
+    font-size: 0.95rem;
+  }
+  
+  .mission-callout__quote {
+    font-size: 1.75rem;
+  }
+  
+  .mission-pillars {
+    padding: 3rem 0;
+  }
+  
+  .mission-pillar {
+    padding: 1.25rem;
+  }
+  
+  .mission-pillar__title {
+    font-size: 1.25rem;
+  }
+  
+  .mission-pillar__description {
+    font-size: 0.95rem;
+  }
+  
+  .mission-closing__statement {
+    font-size: 1.125rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .mission-pillar {
+    transition: none;
+  }
+  
+  .mission-pillar:hover {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .mission-hero__overlay,
+  .mission-callout__overlay,
+  .mission-closing__overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .mission-hero__title,
+  .mission-hero__subtitle,
+  .mission-callout__quote,
+  .mission-closing__statement {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}

@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { getLanguageFromPath, switchLanguage, type Language } from '@/utils/language';
 
-interface Language {
+interface LanguageOption {
   code: string;
   name: string;
   flag: string;
@@ -17,14 +19,18 @@ interface LanguageSwitcherProps {
 
 export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   className = '',
-  currentLanguage = 'en',
+  currentLanguage,
   onLanguageChange
 }) => {
+  const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(currentLanguage);
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(
+    (currentLanguage as Language) || getLanguageFromPath(pathname)
+  );
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const languages: Language[] = [
+  const languages: LanguageOption[] = [
     {
       code: 'en',
       name: 'ΕΝ',
@@ -40,6 +46,12 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   ];
 
   const currentLang = languages.find(lang => lang.code === selectedLanguage) || languages[0];
+
+  // Update selected language when pathname changes
+  useEffect(() => {
+    const newLanguage = getLanguageFromPath(pathname);
+    setSelectedLanguage(newLanguage);
+  }, [pathname]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -64,8 +76,14 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   }, []);
 
   const handleLanguageSelect = (languageCode: string) => {
-    setSelectedLanguage(languageCode);
+    const newLanguage = languageCode as Language;
+    setSelectedLanguage(newLanguage);
     setIsOpen(false);
+    
+    // Navigate to the new language version of the current page
+    const newPath = switchLanguage(pathname, newLanguage);
+    router.push(newPath);
+    
     if (onLanguageChange) {
       onLanguageChange(languageCode);
     }

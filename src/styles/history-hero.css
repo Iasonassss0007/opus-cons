@@ -1,0 +1,127 @@
+/**
+ * History Hero Section Styles
+ * Clean, professional hero section for the history page
+ */
+
+/* History Hero Section */
+.history-hero {
+  width: 100%;
+  background: linear-gradient(135deg, #559495 0%, #5C9694 50%, #6bb6b8 80%, #a8d8d9 100%);
+  padding: 6rem 0 4rem;
+  padding-top: calc(96px + 6rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.history-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.history-hero__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.history-hero__content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Typography */
+.history-hero__title {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.history-hero__subtitle {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.history-hero__description {
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .history-hero {
+    padding: 5rem 0 3rem;
+    padding-top: calc(96px + 5rem);
+  }
+  
+  .history-hero__container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .history-hero {
+    padding: 4rem 0 2.5rem;
+    padding-top: calc(80px + 4rem);
+  }
+  
+  .history-hero__container {
+    padding: 0 1rem;
+  }
+  
+  .history-hero__content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .history-hero {
+    padding: 3rem 0 2rem;
+    padding-top: calc(80px + 3rem);
+  }
+  
+  .history-hero__container {
+    padding: 0 0.75rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .history-hero::before {
+    animation: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .history-hero__title,
+  .history-hero__subtitle,
+  .history-hero__description {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}

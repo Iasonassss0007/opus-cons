@@ -9,7 +9,7 @@ export default function Home() {
       <div className="min-h-screen">
         <Header />
         <main className="flex-1">
-          {/* Hero section removed */}
+          {/* Greek homepage content removed */}
         </main>
       </div>
     </AppLayout>

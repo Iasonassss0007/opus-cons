@@ -1,24 +1,10 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import { type NavigationItem } from '@/utils/navigation';
 
-interface NavigationItem {
-  label: string;
-  href?: string;
-  hasDropdown?: boolean;
-  dropdownContent?: {
-    title: string;
-    columns: Array<{
-      title: string;
-      items: Array<{
-        title: string;
-        description?: string;
-        href: string;
-        icon?: React.ReactNode;
-      }>;
-    }>;
-  };
-}
+// NavigationItem interface is now imported from utils/navigation
 
 interface NavigationMenuProps {
   items: NavigationItem[];
@@ -138,18 +124,36 @@ export const NavigationMenu: React.FC<NavigationMenuProps> = ({
                       </svg>
                     </button>
                   ) : (
-                    <a
-                      href={item.href || '#'}
-                      className="nav-menu__link"
-                      role="menuitem"
-                      tabIndex={0}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        if (item.href) handleLinkClick(item.href);
-                      }}
-                    >
-                      {item.label}
-                    </a>
+                    item.external ? (
+                      <a
+                        href={item.href || '#'}
+                        className="nav-menu__link"
+                        role="menuitem"
+                        tabIndex={0}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => {
+                          if (item.href) {
+                            onClose();
+                            window.open(item.href, '_blank', 'noopener,noreferrer');
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item.href || '#'}
+                        className="nav-menu__link"
+                        role="menuitem"
+                        tabIndex={0}
+                        onClick={() => {
+                          if (item.href) handleLinkClick(item.href);
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                    )
                   )}
                 </li>
               ))}
@@ -193,18 +197,17 @@ export const NavigationMenu: React.FC<NavigationMenuProps> = ({
                     <div key={columnIndex}>
                       {column.items.map((subItem, subIndex) => (
                         <li key={subIndex} role="listitem" className="nav-menu__submenu-item">
-                          <a
+                          <Link
                             href={subItem.href}
                             className="nav-menu__submenu-link"
                             role="menuitem"
                             tabIndex={currentPanel === panelId ? 0 : -1}
-                            onClick={(e) => {
-                              e.preventDefault();
+                            onClick={() => {
                               handleLinkClick(subItem.href);
                             }}
                           >
                             {subItem.title}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </div>

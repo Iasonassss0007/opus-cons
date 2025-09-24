@@ -1,15 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Optimize for static website generation
-  output: 'export',
+  // Enable dynamic routing for bilingual support
   trailingSlash: true,
   images: {
-    unoptimized: true, // Required for static export
-  },
-  // Disable server-side features for static website
-  experimental: {
-    // Remove any experimental features that are webapp-specific
+    unoptimized: false, // Enable image optimization for better performance
   },
   // Optimize for website performance
   compress: true,
