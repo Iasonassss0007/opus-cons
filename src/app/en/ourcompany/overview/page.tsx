@@ -140,7 +140,6 @@ export default function CompanyOverview() {
             </div>
           </section>
 
-
           {/* CTA Section */}
           <section className="company-overview__cta">
             <div className="company-overview__container">

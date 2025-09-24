@@ -48,6 +48,7 @@ export default function VisionMissionPage() {
             </div>
           </section>
 
+
         </main>
       </div>
     </AppLayout>
